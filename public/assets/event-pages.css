@@ -52,7 +52,7 @@ body::before {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: url('/assets/damask.webp') 0 0 / 360px repeat;
+  background: url('./damask.webp') 0 0 / 360px repeat;
   opacity: 0.15;
   mix-blend-mode: screen;
 }
@@ -78,7 +78,7 @@ body::before {
   z-index: 5;
   width: clamp(38px, 4vw, 68px);
   pointer-events: none;
-  background: url('/assets/garland-v.webp') 50% 0 / 100% auto repeat-y;
+  background: url('./garland-v.webp') 50% 0 / 100% auto repeat-y;
   filter: drop-shadow(0 10px 14px rgba(15, 1, 4, 0.6));
   transform-origin: 50% 0;
   height: 420px;
