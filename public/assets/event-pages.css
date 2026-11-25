@@ -1,0 +1,667 @@
+/* ========================================================
+   Event Dedicated Gallery Pages Stylesheet
+   Exact 'বিয়ের রাত' (Panel Maroon + Damask) Background
+   Chandana & Arnab · Anniversary Edition
+   ======================================================== */
+
+:root {
+  --rosette: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='44' viewBox='0 0 64 44'%3E%3Cdefs%3E%3CradialGradient id='g' cx='.4' cy='.35' r='.7'%3E%3Cstop offset='0' stop-color='%23fff1c4'/%3E%3Cstop offset='.5' stop-color='%23d9b160'/%3E%3Cstop offset='1' stop-color='%238a6326'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg fill='url(%23g)' stroke='%234a2f0a' stroke-width='.5'%3E%3Cg transform='translate(32 22)'%3E%3Cellipse rx='2.6' ry='8.2'/%3E%3Cellipse rx='2.6' ry='8.2' transform='rotate(45)'/%3E%3Cellipse rx='2.6' ry='8.2' transform='rotate(90)'/%3E%3Cellipse rx='2.6' ry='8.2' transform='rotate(135)'/%3E%3Ccircle r='3.4'/%3E%3C/g%3E%3Ccircle cy='22' r='2.2'/%3E%3Ccircle cx='64' cy='22' r='2.2'/%3E%3Ccircle cx='4' cy='4' r='1.5'/%3E%3Ccircle cx='12' cy='4' r='1.5'/%3E%3Ccircle cx='20' cy='4' r='1.5'/%3E%3Ccircle cx='28' cy='4' r='1.5'/%3E%3Ccircle cx='36' cy='4' r='1.5'/%3E%3Ccircle cx='44' cy='4' r='1.5'/%3E%3Ccircle cx='52' cy='4' r='1.5'/%3E%3Ccircle cx='60' cy='4' r='1.5'/%3E%3Ccircle cx='4' cy='40' r='1.5'/%3E%3Ccircle cx='12' cy='40' r='1.5'/%3E%3Ccircle cx='20' cy='40' r='1.5'/%3E%3Ccircle cx='28' cy='40' r='1.5'/%3E%3Ccircle cx='36' cy='40' r='1.5'/%3E%3Ccircle cx='44' cy='40' r='1.5'/%3E%3Ccircle cx='52' cy='40' r='1.5'/%3E%3Ccircle cx='60' cy='40' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+  --f-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --f-caps: "Cinzel", "Cormorant Garamond", serif;
+  --f-bn-head: "Noto Serif Bengali", "Tiro Bangla", serif;
+  --f-bn: "Tiro Bangla", "Noto Serif Bengali", serif;
+  --maroon-900: #3d0812;
+  --maroon-800: #4c0b17;
+  --maroon-700: #5e0f1d;
+  --maroon-600: #6e1423;
+  --gold: #c0964a;
+  --gold-light: #f6e3a8;
+  --gold-300: #e0bd72;
+  --ivory: #f8f1e3;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: var(--ivory);
+  font-family: var(--f-bn), serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Exact 'বিয়ের রাত' Base Background */
+body {
+  background-color: var(--maroon-600);
+  background-image: 
+    radial-gradient(ellipse 70% 60% at 50% 38%, rgba(150, 32, 48, 0.42), transparent 72%),
+    radial-gradient(130% 100% at 50% 50%, transparent 45%, rgba(22, 2, 7, 0.66));
+  background-attachment: fixed;
+}
+
+/* Damask Wallpaper Overlay (Same as 'বিয়ের রাত') */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: url('/assets/damask.webp') 0 0 / 360px repeat;
+  opacity: 0.15;
+  mix-blend-mode: screen;
+}
+
+/* Top Frieze Decorative Ribbon (Same as 'বিয়ের রাত') */
+.frieze {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 48px;
+  z-index: 10;
+  background: var(--rosette) center / 64px 44px repeat-x, linear-gradient(var(--maroon-800), var(--maroon-800));
+  border-top: 2px solid #c0964a;
+  border-bottom: 2px solid #c0964a;
+  box-shadow: 0 1px #6b4a17, 0 -1px #6b4a17, 0 10px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Scroll-Extending Floral Garlands on Left & Right */
+.strand {
+  position: absolute;
+  top: 48px;
+  z-index: 5;
+  width: clamp(38px, 4vw, 68px);
+  pointer-events: none;
+  background: url('/assets/garland-v.webp') 50% 0 / 100% auto repeat-y;
+  filter: drop-shadow(0 10px 14px rgba(15, 1, 4, 0.6));
+  transform-origin: 50% 0;
+  height: 420px;
+  transition: height 0.1s linear;
+  will-change: height;
+}
+
+.strand--l {
+  left: clamp(10px, 2.2vw, 42px);
+  animation: strandSway 7s ease-in-out infinite;
+}
+
+.strand--r {
+  right: clamp(10px, 2.2vw, 42px);
+  animation: strandSway 7s ease-in-out -3.5s infinite;
+}
+
+@keyframes strandSway {
+  0%, 100% { rotate: -0.5deg; }
+  50% { rotate: 0.5deg; }
+}
+
+/* Golden Framing Card Edge */
+.card-edge {
+  position: fixed;
+  inset: clamp(10px, 1.4vw, 22px);
+  top: calc(48px + clamp(10px, 1.4vw, 22px));
+  z-index: 4;
+  border: 1px solid rgba(224, 189, 114, 0.55);
+  pointer-events: none;
+}
+
+.card-edge:before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  bottom: 6px;
+  left: 6px;
+  border: 1px solid rgba(224, 189, 114, 0.25);
+}
+
+/* ========================================================
+   Sticky Navigation Bar
+   ======================================================== */
+.ep-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(45, 8, 16, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(224, 189, 114, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.ep-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ep-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(224, 189, 114, 0.16);
+  border: 1px solid rgba(224, 189, 114, 0.45);
+  color: #f6e3a8;
+  text-decoration: none;
+  font-family: var(--f-bn), serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.ep-back-btn:hover {
+  background: rgba(224, 189, 114, 0.35);
+  border-color: #f6e3a8;
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+.ep-header__title {
+  font-family: var(--f-caps), serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: rgba(246, 227, 168, 0.8);
+  text-transform: uppercase;
+}
+
+.ep-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ep-nav__tab {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--f-bn-head), serif;
+  font-size: 13px;
+  color: rgba(255, 246, 216, 0.75);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(224, 189, 114, 0.25);
+  transition: all 0.25s ease;
+}
+
+.ep-nav__tab:hover {
+  background: rgba(224, 189, 114, 0.22);
+  color: #fff6d8;
+  border-color: rgba(224, 189, 114, 0.55);
+}
+
+.ep-nav__tab.is-active {
+  background: linear-gradient(135deg, rgba(224, 189, 114, 0.4), rgba(192, 150, 74, 0.6));
+  border-color: #f6e3a8;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(192, 150, 74, 0.3);
+}
+
+/* ========================================================
+   Main Content Area
+   ======================================================== */
+.ep-main {
+  position: relative;
+  z-index: 10;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+}
+
+/* Hero Section (Matching 'বিয়ের রাত' Header Typography) */
+.ep-hero {
+  text-align: center;
+  padding: 10px 10px 32px;
+}
+
+.ep-kicker {
+  margin: 0 0 6px;
+  font-family: var(--f-caps), serif;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+}
+
+.ep-title {
+  margin: 0;
+  font-family: var(--f-bn-head), "Noto Serif Bengali", serif;
+  font-size: clamp(38px, 4.8vw, 62px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Foil Gold Text Effect */
+.foil {
+  background: linear-gradient(135deg, #fff7d6 0%, #e2c079 35%, #fffbf0 50%, #c99c43 75%, #fae6b4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.ep-lotus {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0 10px;
+  color: #e0bd72;
+}
+
+.ep-tagline {
+  margin: 6px auto 0;
+  max-width: 660px;
+  font-family: var(--f-bn), serif;
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: rgba(255, 246, 216, 0.9);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.ep-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(224, 189, 114, 0.35);
+  font-size: 13.5px;
+  color: #f6e3a8;
+}
+
+.ep-meta-pill .sep {
+  opacity: 0.4;
+}
+
+/* ========================================================
+   Gallery Grid & Cards
+   ======================================================== */
+.ep-gallery {
+  margin-top: 20px;
+}
+
+.ep-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.ep-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.08), rgba(20, 3, 7, 0.65));
+  border-radius: 18px;
+  padding: 9px 9px 14px;
+  border: 1px solid rgba(224, 189, 114, 0.35);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.ep-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #f6e3a8;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+}
+
+.ep-card__img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #140307;
+  border: 1px solid rgba(224, 189, 114, 0.2);
+}
+
+.ep-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+
+.ep-card:hover .ep-card__img-wrap img {
+  transform: scale(1.08);
+}
+
+.ep-card__zoom-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  color: #fff6d8;
+  font-size: 11px;
+  font-family: var(--f-bn), serif;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(224, 189, 114, 0.3);
+}
+
+.ep-card:hover .ep-card__zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ep-card__caption {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ep-card__title {
+  display: block;
+  font-family: var(--f-bn-head), serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #fff6d8;
+}
+
+.ep-card__sub {
+  display: block;
+  font-size: 12px;
+  color: rgba(246, 227, 168, 0.7);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* Footer */
+.ep-footer {
+  margin-top: 50px;
+  text-align: center;
+  padding: 24px 16px;
+  border-top: 1px solid rgba(224, 189, 114, 0.2);
+  font-size: 14px;
+  color: rgba(246, 227, 168, 0.7);
+}
+
+.ep-back-home-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(224, 189, 114, 0.25), rgba(192, 150, 74, 0.45));
+  border: 1px solid #e0bd72;
+  color: #fff6d8;
+  text-decoration: none;
+  font-family: var(--f-bn), serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.ep-back-home-btn:hover {
+  background: linear-gradient(135deg, #c0964a, #f6e3a8);
+  color: #3d0812;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(224, 189, 114, 0.35);
+}
+
+/* ========================================================
+   Fullscreen Zoomable Lightbox
+   ======================================================== */
+.ep-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.32s ease, visibility 0.32s ease;
+  user-select: none;
+}
+
+.ep-lb.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.ep-lb__backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(35, 8, 14, 0.95), rgba(10, 2, 4, 0.98) 85%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1;
+}
+
+.ep-lb__topbar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: linear-gradient(180deg, rgba(12, 2, 5, 0.92), transparent);
+  gap: 16px;
+}
+
+.ep-lb__meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ep-lb__counter {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 20px;
+  background: rgba(192, 150, 74, 0.18);
+  border: 1px solid rgba(224, 189, 114, 0.4);
+  font-family: var(--f-caps), serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f6e3a8;
+  letter-spacing: 1px;
+}
+
+.ep-lb__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ep-lb__title {
+  font-family: var(--f-bn-head), serif;
+  font-size: 17px;
+  color: #fff6d8;
+  font-weight: 700;
+}
+
+.ep-lb__sub {
+  font-size: 12px;
+  color: rgba(246, 227, 168, 0.7);
+  font-style: italic;
+  margin-top: 1px;
+}
+
+.ep-lb__tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ep-lb__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(240, 200, 120, 0.12);
+  border: 1px solid rgba(224, 189, 114, 0.3);
+  color: #f6e3a8;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  outline: none;
+}
+
+.ep-lb__btn:hover {
+  background: rgba(240, 200, 120, 0.3);
+  border-color: #f6e3a8;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.ep-lb__btn--close {
+  background: rgba(180, 20, 30, 0.35);
+  border-color: rgba(220, 60, 70, 0.4);
+}
+
+.ep-lb__btn--close:hover {
+  background: rgba(220, 30, 45, 0.7);
+  border-color: #ff6b7d;
+}
+
+.ep-lb__zoom-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(224, 189, 114, 0.25);
+  color: #e0bd72;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ep-lb__stage {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  overflow: hidden;
+  height: calc(100vh - 140px);
+}
+
+.ep-lb__viewport {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.ep-lb__img {
+  max-width: 86vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(224, 189, 114, 0.25);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.ep-lb__nav {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(20, 4, 8, 0.65);
+  border: 1.5px solid rgba(224, 189, 114, 0.4);
+  color: #f6e3a8;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.ep-lb__nav:hover {
+  background: rgba(192, 150, 74, 0.35);
+  border-color: #f6e3a8;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.ep-lb__hint {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 10px 16px 14px;
+  font-family: var(--f-bn), serif;
+  font-size: 13px;
+  color: rgba(246, 227, 168, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ep-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .strand {
+    display: none;
+  }
+  .card-edge {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .ep-header__inner {
+    padding: 8px 14px;
+  }
+  .ep-header__title {
+    display: none;
+  }
+  .ep-header__nav {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 4px;
+  }
+  .ep-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .ep-meta-pill {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .ep-meta-pill .sep {
+    display: none;
+  }
+  .ep-lb__topbar {
+    padding: 10px 12px;
+  }
+  .ep-lb__nav {
+    width: 40px;
+    height: 40px;
+  }
+}

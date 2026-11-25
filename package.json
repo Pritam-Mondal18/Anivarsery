@@ -1,0 +1,20 @@
+{
+  "name": "wedding-invitation-clone",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Bengali Wedding Invitation Card Clone (Chandana & Arnab)",
+  "type": "module",
+  "scripts": {
+    "dev": "serve . -p 3000",
+    "start": "serve . -p 3000",
+    "preview": "serve . -p 3000",
+    "build": "node -e \"console.log('Project is static production-ready. Deploy index.html and assets/ folder directly.')\""
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
