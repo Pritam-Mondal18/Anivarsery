@@ -1,4 +1,4 @@
-# Chandana & Arnab · শুভ বিবাহ বার্ষিকী (Bengali Wedding Invitation Card)
+# Chandana & Arnab · শুভ বিবাহ বার্ষিকী
 
 ---
 
