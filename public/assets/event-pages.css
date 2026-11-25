@@ -38,7 +38,7 @@ html, body {
 
 /* Exact 'বিয়ের রাত' Base Background */
 body {
-  padding-top: 114px;
+  padding-top: 96px;
   background-color: var(--maroon-600);
   background-image: 
     radial-gradient(ellipse 70% 60% at 50% 38%, rgba(150, 32, 48, 0.42), transparent 72%),
@@ -655,7 +655,7 @@ body::before {
 
 @media (max-width: 600px) {
   body {
-    padding-top: 96px;
+    padding-top: 86px;
   }
   .ep-top-bar .frieze {
     height: 36px;
@@ -689,4 +689,27 @@ body::before {
     width: 40px;
     height: 40px;
   }
+}
+
+
+/* Back tab on same row */
+.ep-nav__tab--back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background: rgba(224, 189, 114, 0.22);
+  border: 1px solid rgba(224, 189, 114, 0.55);
+  color: #f6e3a8;
+  flex-shrink: 0;
+}
+
+.ep-nav__tab--back:hover {
+  background: rgba(224, 189, 114, 0.45);
+  color: #ffffff;
+  border-color: #f6e3a8;
+}
+
+.ep-nav__tab--back svg {
+  display: block;
 }
