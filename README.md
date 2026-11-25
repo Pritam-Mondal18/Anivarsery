@@ -1,7 +1,5 @@
 # Chandana & Arnab · শুভ বিবাহ বার্ষিকী (Bengali Wedding Invitation Card)
 
-An exact, high-performance, responsive clone of [https://online-invitation-card-jh9w.vercel.app/](https://online-invitation-card-jh9w.vercel.app/) with customized assets (`pic.jpeg` and `vdo2.mp4`).
-
 ---
 
 ## 🌟 Features Included
