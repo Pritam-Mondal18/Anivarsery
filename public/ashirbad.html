@@ -14,7 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@500;600;700&family=Tiro+Bangla&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/event-pages.css?v=39">
+  <link rel="stylesheet" href="./assets/event-pages.css?v=40">
 </head>
 
 <body>
@@ -308,7 +308,7 @@
       </section>
 
       <footer class="ep-footer">
-        <p>✨ যেকোনো ছবিতে ক্লিক করে বড় পর্দায় ও জুম করে দেখতে পারেন</p>
+        <p></p>
       </footer>
   </main>
 
@@ -495,7 +495,84 @@
     window.addEventListener("resize", updateGarlands, { passive: true });
     // Initial call
     updateGarlands();
+
+    // --- Background Music Controller ---
+    (function initGalleryMusic() {
+      const bgm = document.getElementById("bgMusic");
+      const musicBtn = document.getElementById("musicBtn");
+      if (!bgm) return;
+      bgm.volume = 0.75;
+
+      function playMusic() {
+        const p = bgm.play();
+        if (p && typeof p.then === "function") {
+          p.then(() => {
+            if (musicBtn) {
+              musicBtn.classList.add("is-playing");
+              musicBtn.classList.remove("is-muted");
+            }
+          }).catch(() => {
+            if (musicBtn) {
+              musicBtn.classList.remove("is-playing");
+              musicBtn.classList.add("is-muted");
+            }
+          });
+        }
+      }
+
+      // Autoplay attempt
+      playMusic();
+
+      // Autoplay on first touch/click/scroll if browser blocked unmuted autoplay
+      function onFirstInteract() {
+        if (bgm.paused) playMusic();
+        document.removeEventListener("pointerdown", onFirstInteract);
+        document.removeEventListener("touchstart", onFirstInteract);
+        document.removeEventListener("scroll", onFirstInteract);
+      }
+      document.addEventListener("pointerdown", onFirstInteract, { passive: true });
+      document.addEventListener("touchstart", onFirstInteract, { passive: true });
+      document.addEventListener("scroll", onFirstInteract, { passive: true });
+
+      if (musicBtn) {
+        musicBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          if (bgm.paused) {
+            bgm.play().then(() => {
+              musicBtn.classList.add("is-playing");
+              musicBtn.classList.remove("is-muted");
+            });
+          } else {
+            bgm.pause();
+            musicBtn.classList.remove("is-playing");
+            musicBtn.classList.add("is-muted");
+          }
+        });
+      }
+    })();
+
   </script>
+
+  <!-- Background Music Audio & Floating Toggle Button -->
+  <audio id="bgMusic" src="./assets/bgm.mp3" preload="auto" loop></audio>
+  <button class="music-btn is-visible" id="musicBtn" type="button" aria-label="Toggle background music" title="মিউজিক অন / অফ">
+    <span class="music-btn__disc">
+      <svg class="music-btn__icon music-btn__icon--play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V5l12-2v13" />
+        <circle cx="6" cy="18" r="3" />
+        <circle cx="18" cy="16" r="3" />
+      </svg>
+      <svg class="music-btn__icon music-btn__icon--mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 5L6 9H2v6h4l5 4V5z" />
+        <line x1="23" y1="9" x2="17" y2="15" />
+        <line x1="17" y1="9" x2="23" y2="15" />
+      </svg>
+    </span>
+    <span class="music-btn__waves" aria-hidden="true">
+      <i></i><i></i><i></i>
+    </span>
+  </button>
+
 </body>
 
 </html>

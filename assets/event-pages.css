@@ -713,3 +713,129 @@ body::before {
 .ep-nav__tab--back svg {
   display: block;
 }
+
+
+/* ========================================================
+   Floating Background Music Button & Vinyl Disc Animation
+   ======================================================== */
+.music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 995;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 10px;
+  border-radius: 999px;
+  background: rgba(35, 6, 12, 0.85);
+  border: 1.5px solid rgba(246, 227, 168, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 16px rgba(192, 150, 74, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  color: #f6e3a8;
+  opacity: 1;
+  visibility: visible;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, opacity 0.4s ease;
+}
+
+.music-btn:hover {
+  background: rgba(55, 8, 18, 0.95);
+  border-color: #fff6d8;
+  transform: scale(1.06);
+}
+
+.music-btn:active {
+  transform: scale(0.96);
+}
+
+.music-btn__disc {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+}
+
+.music-btn__icon {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.music-btn__icon--play {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.music-btn__icon--mute {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.music-btn.is-playing .music-btn__icon--play {
+  opacity: 1;
+  transform: scale(1);
+  animation: musicSpin 6s linear infinite;
+}
+
+.music-btn.is-playing .music-btn__icon--mute {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+@keyframes musicSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.music-btn__waves {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+}
+
+.music-btn__waves i {
+  display: block;
+  width: 2.5px;
+  height: 3px;
+  border-radius: 999px;
+  background: #f6e3a8;
+  transition: height 0.3s ease;
+}
+
+.music-btn.is-playing .music-btn__waves i:nth-child(1) {
+  animation: musicWave 1.1s ease-in-out infinite alternate;
+}
+
+.music-btn.is-playing .music-btn__waves i:nth-child(2) {
+  animation: musicWave 0.85s ease-in-out 0.2s infinite alternate;
+}
+
+.music-btn.is-playing .music-btn__waves i:nth-child(3) {
+  animation: musicWave 1.25s ease-in-out 0.4s infinite alternate;
+}
+
+@keyframes musicWave {
+  0% {
+    height: 3px;
+  }
+  100% {
+    height: 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .music-btn {
+    bottom: 18px;
+    right: 18px;
+    padding: 7px 10px;
+  }
+  .music-btn__waves {
+    display: none;
+  }
+}
