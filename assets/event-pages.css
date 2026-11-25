@@ -38,6 +38,7 @@ html, body {
 
 /* Exact 'বিয়ের রাত' Base Background */
 body {
+  padding-top: 114px;
   background-color: var(--maroon-600);
   background-image: 
     radial-gradient(ellipse 70% 60% at 50% 38%, rgba(150, 32, 48, 0.42), transparent 72%),
@@ -124,15 +125,33 @@ body::before {
 /* ========================================================
    Sticky Navigation Bar
    ======================================================== */
-.ep-header {
-  position: sticky;
+.ep-top-bar {
+  position: fixed;
   top: 0;
-  z-index: 100;
-  background: rgba(45, 8, 16, 0.94);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(45, 8, 16, 0.98);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.65);
+}
+
+.ep-top-bar .frieze {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 48px;
+  z-index: 10;
+}
+
+.ep-header {
+  position: relative;
+  top: auto;
+  z-index: 10;
+  background: transparent;
   border-bottom: 1px solid rgba(224, 189, 114, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .ep-header__inner {
@@ -635,6 +654,12 @@ body::before {
 }
 
 @media (max-width: 600px) {
+  body {
+    padding-top: 96px;
+  }
+  .ep-top-bar .frieze {
+    height: 36px;
+  }
   .ep-header__inner {
     padding: 8px 14px;
   }

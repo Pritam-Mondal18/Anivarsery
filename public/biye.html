@@ -14,13 +14,13 @@
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@500;600;700&family=Tiro+Bangla&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/event-pages.css?v=36">
+  <link rel="stylesheet" href="./assets/event-pages.css?v=37">
 </head>
 
 <body>
 
   <!-- Top Rosette Frieze (Same as 'বিয়ের রাত') -->
-  <div class="frieze" aria-hidden="true"></div>
+  
 
   <!-- Swaying Floral Garland Strands on Left & Right (Extends on Scroll) -->
   <div class="strand strand--l" id="strandL" aria-hidden="true"></div>
@@ -30,14 +30,16 @@
   <div class="card-edge" aria-hidden="true"></div>
 
   <!-- Top Sticky Navigation Bar -->
-  <header class="ep-header">
+  <div class="ep-top-bar">
+    <div class="frieze" aria-hidden="true"></div>
+    <header class="ep-header">
     <div class="ep-header__inner">
       <a href="./index.html#events" class="ep-back-btn">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
           <line x1="19" y1="12" x2="5" y2="12" />
           <polyline points="12 19 5 12 12 5" />
         </svg>
-        <span>মূল নিমন্ত্রণে ফিরুন</span>
+        <span></span>
       </a>
       <div class="ep-header__title">চন্দনা ও অর্ণব · বিবাহ বার্ষিকী</div>
       <div class="ep-header__nav">
@@ -47,6 +49,7 @@
       </div>
     </div>
   </header>
+  </div>
 
   <!-- Page Content -->
   <main class="ep-main">
